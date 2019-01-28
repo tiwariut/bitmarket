@@ -2,5 +2,11 @@
 
 <?php foreach($products as $product) : ?>
    <h3><?php echo $product['title']; ?></h3>
-   <p></p>
+   <img src="<?php echo $product['image']; ?>"></img>
+    <h4><?php echo $product['price']; ?></h4>
+    <p><a class="btn btn-default" href="<?php echo site_url('/products/' . $product['slug']); ?>">View</a></p>
+
 <?php endforeach; ?>
+
+
+
