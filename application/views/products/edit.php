@@ -18,7 +18,7 @@
 </div>
 <div class="form-group">
     <label>Product Description</label>
-    <textarea class="form-control" name="body" rows="8"><?php echo $product['body']; ?></textarea>
+    <textarea id="editor" class="form-control" name="body" rows="8"><?php echo $product['body']; ?></textarea>
 </div>
 <button type="submit" class="btn btn-primary">Submit</button>
 </form>
