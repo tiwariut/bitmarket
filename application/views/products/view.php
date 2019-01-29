@@ -10,4 +10,9 @@
             <p class="card-text"><?php echo $product['body']; ?></p>
         </div>
     </div>
+
+    <hr>
+    <?php echo form_open('/products/delete/' . $product['id']); ?>
+        <input type="submit" value="Delete Product" class="btn btn-danger">
+    </form>
 </div>

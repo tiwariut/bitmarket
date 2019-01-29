@@ -39,4 +39,9 @@ class Products extends CI_Controller{
             redirect('products');
         }
     }
+
+    public function delete($id){
+        $this->product_model->delete_product($id);
+        redirect('products');
+    }
 }

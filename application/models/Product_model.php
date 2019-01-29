@@ -28,4 +28,10 @@ class Product_model extends CI_Model{
 
         return $this->db->insert('products', $data);
     }
+
+    public function delete_product($id){
+        $this->db->where('id', $id);
+        $this->db->delete('products');
+        return true;
+    }
 }
