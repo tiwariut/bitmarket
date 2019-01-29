@@ -27,11 +27,19 @@
            </ul>
            <ul class="nav navbar-nav navbar-right">
                <li class="nav-item">
-                   <a class="nav-link" href="<?php echo base_url(); ?>products/create">Upload Product <span class="sr-only">(current)</span></a>
+                   <a class="nav-link" href="<?php echo base_url(); ?>products/create">Upload Product</a>
+               </li>
+               <li class="nav-item">
+                   <a class="nav-link" href="<?php echo base_url(); ?>users/register">Register</a>
                </li>
            </ul>
        </div>
    </nav>
 
    <div class="container">
+
+       <!-- Flash Messages -->
+       <?php if($this->session->flashdata('user_registered')): ?>
+           <?php echo '<p class="alert alert-success">' . $this->session->flashdata('user_registered') . '<p>'; ?>
+       <?php endif; ?>
 
