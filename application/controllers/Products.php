@@ -21,4 +21,22 @@ class Products extends CI_Controller{
         $this->load->view('products/view', $data);
         $this->load->view('templates/footer');
     }
+
+    public function create(){
+        $data['title'] = 'Upload Product';
+
+        $this->form_validation->set_rules('title', 'Title', 'required');
+        $this->form_validation->set_rules('image', 'Image', 'required');
+        $this->form_validation->set_rules('price', 'Price', 'required');
+        $this->form_validation->set_rules('body', 'Body', 'required');
+
+        if($this->form_validation->run() === FALSE){
+            $this->load->view('templates/header');
+            $this->load->view('products/create', $data);
+            $this->load->view('templates/footer');
+        } else{
+            $this->product_model->create_product();
+            redirect('products');
+        }
+    }
 }
