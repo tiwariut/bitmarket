@@ -34,4 +34,19 @@ class Product_model extends CI_Model{
         $this->db->delete('products');
         return true;
     }
+
+    public function update_product(){
+        $slug = url_title($this->input->post('title'));
+
+        $data = array(
+            'title' => $this->input->post('title'),
+            'image' => $this->input->post('image'),
+            'price' => $this->input->post('price'),
+            'slug' => $slug,
+            'body' => $this->input->post('body')
+        );
+
+        $this->db->where('id', $this->input->post('id'));
+        return $this->db->update('products', $data);
+    }
 }

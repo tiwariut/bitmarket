@@ -24,6 +24,11 @@
                    <a class="nav-link" href="<?php echo base_url(); ?>products">Products</a>
                </li>
            </ul>
+           <ul class="nav navbar-nav navbar-right">
+               <li class="nav-item">
+                   <a class="nav-link" href="<?php echo base_url(); ?>products/create">Upload Product <span class="sr-only">(current)</span></a>
+               </li>
+           </ul>
        </div>
    </nav>
 

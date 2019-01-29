@@ -12,7 +12,13 @@
     </div>
 
     <hr>
+
+    <a class="btn btn-warning" href="edit/<?php echo $product['slug']; ?>">Edit Product</a>
+
+    <hr>
+
     <?php echo form_open('/products/delete/' . $product['id']); ?>
         <input type="submit" value="Delete Product" class="btn btn-danger">
     </form>
+
 </div>

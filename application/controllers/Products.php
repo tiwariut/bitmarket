@@ -12,6 +12,7 @@ class Products extends CI_Controller{
 
     public function view($slug = NULL){
         $data['product'] = $this->product_model->get_products($slug);
+
         if(empty($data['product'])){
             show_404();
         }
@@ -44,4 +45,24 @@ class Products extends CI_Controller{
         $this->product_model->delete_product($id);
         redirect('products');
     }
+
+    public function edit($slug){
+        $data['product'] = $this->product_model->get_products($slug);
+
+        if(empty($data['product'])){
+            show_404();
+        }
+        $data['title'] = 'Edit Product';
+
+        $this->load->view('templates/header');
+        $this->load->view('products/edit', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function update(){
+        $this->product_model->update_product();
+        redirect ('products');
+    }
+
+
 }
