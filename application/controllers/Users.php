@@ -29,7 +29,7 @@ class Users extends CI_Controller{
 
     }
 
-    //Log in user
+    //Log user in
     public function login(){
         $data['title'] = 'Login';
 
@@ -73,6 +73,20 @@ class Users extends CI_Controller{
             }
 
         }
+
+    }
+
+    //Log user out
+    public function logout(){
+        //Unset user data
+        $this->session->unset_userdata('logged_in');
+        $this->session->unset_userdata('user_id');
+        $this->session->unset_userdata('username');
+
+        //Set message
+        $this->session->set_flashdata('user_loggedout', 'You are now logged out.');
+
+        redirect('users/login');
 
     }
 
