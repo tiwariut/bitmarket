@@ -23,7 +23,8 @@ class Product_model extends CI_Model{
           'image' => $this->input->post('image'),
           'price' => $this->input->post('price'),
           'slug' => $slug,
-          'body' => $this->input->post('body')
+          'body' => $this->input->post('body'),
+            'user_id' => $this->session->userdata('user_id')
         );
 
         return $this->db->insert('products', $data);

@@ -26,20 +26,28 @@
                </li>
            </ul>
            <ul class="nav navbar-nav navbar-right">
-               <li class="nav-item">
-                   <a class="nav-link" href="<?php echo base_url(); ?>products/create">Upload Product</a>
-               </li>
-               <li class="nav-item">
-                   <a class="nav-link" href="<?php echo base_url(); ?>users/register">Register</a>
-               </li>
+               <?php if(!$this->session->userdata('logged_in')) : ?>
+                   <li class="nav-item">
+                       <a class="nav-link" href="<?php echo base_url(); ?>users/register">Register</a>
+                   </li>
 
-               <li class="nav-item">
-                   <a class="nav-link" href="<?php echo base_url(); ?>users/login">Login</a>
-               </li>
+                   <li class="nav-item">
+                       <a class="nav-link" href="<?php echo base_url(); ?>users/login">Login</a>
+                   </li>
 
-               <li class="nav-item">
-                   <a class="nav-link" href="<?php echo base_url(); ?>users/logout">Logout</a>
-               </li>
+               <?php endif; ?>
+
+               <?php if($this->session->userdata('logged_in')) : ?>
+                   <li class="nav-item">
+                       <a class="nav-link" href="<?php echo base_url(); ?>products/create">Upload Product</a>
+                   </li>
+
+                   <li class="nav-item">
+                       <a class="nav-link" href="<?php echo base_url(); ?>users/logout">Logout</a>
+                   </li>
+
+               <?php endif; ?>
+
            </ul>
        </div>
    </nav>

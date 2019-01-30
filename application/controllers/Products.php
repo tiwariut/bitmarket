@@ -24,6 +24,11 @@ class Products extends CI_Controller{
     }
 
     public function create(){
+        //Check if user is logged in
+        if(!$this->session->userdata('logged_in')){
+            redirect('users/login');
+        }
+
         $data['title'] = 'Upload Product';
 
         $this->form_validation->set_rules('title', 'Title', 'required');
@@ -46,6 +51,11 @@ class Products extends CI_Controller{
     }
 
     public function delete($id){
+        //Check if user is logged in
+        if(!$this->session->userdata('logged_in')){
+            redirect('users/login');
+        }
+
         $this->product_model->delete_product($id);
 
         //Set message
@@ -55,7 +65,17 @@ class Products extends CI_Controller{
     }
 
     public function edit($slug){
+        //Check if user is logged in
+        if(!$this->session->userdata('logged_in')){
+            redirect('users/login');
+        }
+
         $data['product'] = $this->product_model->get_products($slug);
+
+        //Check user
+        if($this->session->userdata('user_id') != $this->product_model->get_products($slug)['user_id']){
+            redirect('products');
+        }
 
         if(empty($data['product'])){
             show_404();
@@ -68,6 +88,11 @@ class Products extends CI_Controller{
     }
 
     public function update(){
+        //Check if user is logged in
+        if(!$this->session->userdata('logged_in')){
+            redirect('users/login');
+        }
+
         $this->product_model->update_product();
 
         //Set message

@@ -13,12 +13,18 @@
 
     <hr>
 
-    <a class="btn btn-warning" href="edit/<?php echo $product['slug']; ?>">Edit Product</a>
+    <?php if($this->session->userdata('user_id') == $product['user_id']) : ?>
 
-    <hr>
+        <a class="btn btn-warning" href="edit/<?php echo $product['slug']; ?>">Edit Product</a>
 
-    <?php echo form_open('/products/delete/' . $product['id']); ?>
+        <hr>
+
+        <?php echo form_open('/products/delete/' . $product['id']); ?>
         <input type="submit" value="Delete Product" class="btn btn-danger">
-    </form>
+        </form>
+
+    <?php endif; ?>
+
+
 
 </div>
