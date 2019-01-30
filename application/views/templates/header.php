@@ -15,7 +15,7 @@
 
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
            <ul class="navbar-nav mr-auto">
-               <li class="nav-item active">
+               <li class="nav-item">
                    <a class="nav-link" href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
                </li>
                <li class="nav-item">
@@ -27,10 +27,13 @@
            </ul>
            <ul class="nav navbar-nav navbar-right">
                <li class="nav-item">
-                   <a class="nav-link" href="<?php echo base_url(); ?>products/create">Upload Product</a>
+                   <a class="nav-link" href="<?php echo base_url(); ?>users/login">Login</a>
                </li>
                <li class="nav-item">
                    <a class="nav-link" href="<?php echo base_url(); ?>users/register">Register</a>
+               </li>
+               <li class="nav-item">
+                   <a class="nav-link" href="<?php echo base_url(); ?>products/create">Upload Product</a>
                </li>
            </ul>
        </div>
@@ -53,5 +56,13 @@
 
        <?php if($this->session->flashdata('product_updated')): ?>
            <?php echo '<p class="alert alert-success">' . $this->session->flashdata('product_updated') . '<p>'; ?>
+       <?php endif; ?>
+
+       <?php if($this->session->flashdata('user_loggedin')): ?>
+           <?php echo '<p class="alert alert-success">' . $this->session->flashdata('user_loggedin') . '<p>'; ?>
+       <?php endif; ?>
+
+       <?php if($this->session->flashdata('login_failed')): ?>
+           <?php echo '<p class="alert alert-danger">' . $this->session->flashdata('login_failed') . '<p>'; ?>
        <?php endif; ?>
 
