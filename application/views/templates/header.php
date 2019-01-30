@@ -43,3 +43,15 @@
            <?php echo '<p class="alert alert-success">' . $this->session->flashdata('user_registered') . '<p>'; ?>
        <?php endif; ?>
 
+       <?php if($this->session->flashdata('product_created')): ?>
+           <?php echo '<p class="alert alert-success">' . $this->session->flashdata('product_created') . '<p>'; ?>
+       <?php endif; ?>
+
+       <?php if($this->session->flashdata('product_deleted')): ?>
+           <?php echo '<p class="alert alert-success">' . $this->session->flashdata('product_deleted') . '<p>'; ?>
+       <?php endif; ?>
+
+       <?php if($this->session->flashdata('product_updated')): ?>
+           <?php echo '<p class="alert alert-success">' . $this->session->flashdata('product_updated') . '<p>'; ?>
+       <?php endif; ?>
+

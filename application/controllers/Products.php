@@ -37,12 +37,20 @@ class Products extends CI_Controller{
             $this->load->view('templates/footer');
         } else{
             $this->product_model->create_product();
+
+            //Set message
+            $this->session->set_flashdata('product_created', 'Your product has been uploaded.');
+
             redirect('products');
         }
     }
 
     public function delete($id){
         $this->product_model->delete_product($id);
+
+        //Set message
+        $this->session->set_flashdata('product_deleted', 'Your product has been deleted.');
+
         redirect('products');
     }
 
@@ -61,6 +69,10 @@ class Products extends CI_Controller{
 
     public function update(){
         $this->product_model->update_product();
+
+        //Set message
+        $this->session->set_flashdata('product_created', 'Your product has been updated.');
+
         redirect ('products');
     }
 
