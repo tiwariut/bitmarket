@@ -24,6 +24,16 @@
                <li class="nav-item">
                    <a class="nav-link" href="<?php echo base_url(); ?>products">Products</a>
                </li>
+               <?php if($this->session->userdata('logged_in')) : ?>
+
+
+                   <li class="nav-item">
+                       <a class="nav-link" href="<?php echo base_url(); ?>products/create">Upload Product</a>
+                   </li>
+
+
+
+               <?php endif; ?>
            </ul>
            <ul class="nav navbar-nav navbar-right">
                <?php if(!$this->session->userdata('logged_in')) : ?>
@@ -39,7 +49,7 @@
 
                <?php if($this->session->userdata('logged_in')) : ?>
                    <li class="nav-item">
-                       <a class="nav-link" href="<?php echo base_url(); ?>products/create">Upload Product</a>
+                       <a class="nav-link" href="#"><?php echo $this->session->userdata('username'); ?></a>
                    </li>
 
                    <li class="nav-item">
